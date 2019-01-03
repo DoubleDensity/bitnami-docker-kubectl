@@ -19,6 +19,9 @@ ENV BITNAMI_APP_NAME="kubectl" \
 RUN install_packages ca-certificates
 RUN chmod +x /opt/bitnami/kubectl/bin/kubectl
 
+# add minio client
+ADD https://dl.minio.io/client/mc/release/linux-amd64/mc /usr/bin/mc
+RUN chmod +x /usr/bin/mc
+
 USER 1001
-ENTRYPOINT [ "kubectl" ]
-CMD [ "--help" ]
+ENTRYPOINT ["/bin/bash", "-c"]
