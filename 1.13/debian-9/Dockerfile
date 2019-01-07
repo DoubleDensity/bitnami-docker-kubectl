@@ -16,12 +16,15 @@ ENV BITNAMI_APP_NAME="kubectl" \
     BITNAMI_IMAGE_VERSION="1.13.1-debian-9-r14" \
     PATH="/opt/bitnami/kubectl/bin:$PATH"
 
-RUN install_packages ca-certificates python-jinja2
+RUN install_packages ca-certificates python-pip
 RUN chmod +x /opt/bitnami/kubectl/bin/kubectl
 
 # add minio client
 ADD https://dl.minio.io/client/mc/release/linux-amd64/mc /usr/bin/mc
 RUN chmod +x /usr/bin/mc
+
+# add j2cli for parsing templates
+RUN pip install j2cli[yaml]
 
 USER 1001
 ENTRYPOINT ["/bin/bash", "-c"]
