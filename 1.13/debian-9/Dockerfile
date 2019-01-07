@@ -23,5 +23,8 @@ RUN chmod +x /opt/bitnami/kubectl/bin/kubectl
 ADD https://dl.minio.io/client/mc/release/linux-amd64/mc /usr/bin/mc
 RUN chmod +x /usr/bin/mc
 
+# adding jinja for kubernetes template parsing
+RUN apt-get install -y python-jinja2
+
 USER 1001
 ENTRYPOINT ["/bin/bash", "-c"]
