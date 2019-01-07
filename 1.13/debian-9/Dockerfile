@@ -24,8 +24,8 @@ ADD https://dl.minio.io/client/mc/release/linux-amd64/mc /usr/bin/mc
 RUN chmod +x /usr/bin/mc
 
 # add j2cli for parsing templates
-RUN pip install wheel j2cli[yaml]
-RUN python setup.py bdist_wheel
+RUN pip install wheel
+RUN pip install j2cli[yaml]
 
 USER 1001
 ENTRYPOINT ["/bin/bash", "-c"]
