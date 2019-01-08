@@ -27,5 +27,9 @@ RUN chmod +x /usr/bin/mc
 RUN pip install wheel
 RUN pip install j2cli[yaml]
 
+# add virtctl
+ADD https://github.com/kubevirt/kubevirt/releases/download/v0.11.0/virtctl-v0.11.0-linux-amd64 /usr/bin/virtctl
+RUN chmod +x /usr/bin/virtctl
+
 USER 1001
 ENTRYPOINT ["/bin/bash", "-c"]
