@@ -16,7 +16,7 @@ ENV BITNAMI_APP_NAME="kubectl" \
     BITNAMI_IMAGE_VERSION="1.13.1-debian-9-r14" \
     PATH="/opt/bitnami/kubectl/bin:$PATH"
 
-RUN install_packages ca-certificates python-pip python-setuptools ssh-client sed
+RUN install_packages ca-certificates python-pip python-setuptools ssh-client sed snap
 RUN chmod +x /opt/bitnami/kubectl/bin/kubectl
 
 # add minio client
@@ -26,6 +26,9 @@ RUN chmod +x /usr/bin/mc
 # add j2cli for parsing templates
 RUN pip install wheel
 RUN pip install j2cli[yaml]
+
+# add yq for yaml manipulation
+RUN snap install yq
 
 # add virtctl
 ADD https://github.com/kubevirt/kubevirt/releases/download/v0.11.0/virtctl-v0.11.0-linux-amd64 /usr/bin/virtctl
