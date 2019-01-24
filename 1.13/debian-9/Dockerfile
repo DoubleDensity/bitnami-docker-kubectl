@@ -16,7 +16,7 @@ ENV BITNAMI_APP_NAME="kubectl" \
     BITNAMI_IMAGE_VERSION="1.13.1-debian-9-r14" \
     PATH="/opt/bitnami/kubectl/bin:$PATH"
 
-RUN install_packages ca-certificates python-pip python-setuptools ssh-client sed pbzip2 file
+RUN install_packages ca-certificates python-pip python-setuptools ssh-client sed expect file
 RUN chmod +x /opt/bitnami/kubectl/bin/kubectl
 
 # add minio client
