@@ -32,7 +32,7 @@ ADD https://github.com/mikefarah/yq/releases/download/2.2.1/yq_linux_amd64 /usr/
 RUN chmod +x /usr/bin/yq
 
 # add virtctl
-ADD https://github.com/kubevirt/kubevirt/releases/download/v0.11.0/virtctl-v0.11.0-linux-amd64 /usr/bin/virtctl
+ADD https://github.com/kubevirt/kubevirt/releases/download/v0.15.0/virtctl-v0.15.0-linux-amd64 /usr/bin/virtctl
 RUN chmod +x /usr/bin/virtctl
 
 ENTRYPOINT ["/bin/bash", "-c"]
